@@ -1,0 +1,15 @@
+"use strict";
+var esNuevo = false;
+var deseaImprimir = true;
+var aceptaDescuentos = (15 + 18 === 33);
+var juan = "juan";
+var juan2 = "Juan";
+var sonNombresIguales = juan === juan2;
+console.log("Este booleano es: " + aceptaDescuentos);
+console.log("¿Son nombres iguales? " + sonNombresIguales);
+var sonAmbosVerdaderos = aceptaDescuentos && sonNombresIguales;
+var algunoEsVerdadero = aceptaDescuentos || sonNombresIguales;
+var sonDistintas = aceptaDescuentos !== sonNombresIguales;
+console.log('¿Son ambos verdaderos? ' + sonAmbosVerdaderos);
+console.log('¿Alguno es verdadero?', algunoEsVerdadero);
+console.log('¿Son Distintos?', sonDistintas);
