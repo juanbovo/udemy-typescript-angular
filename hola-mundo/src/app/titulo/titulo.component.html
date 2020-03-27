@@ -1,0 +1,40 @@
+<h1>Lo que me costó el amor de {{girlName}}</h1>
+<h3><dfn>Yo soy el {{ cortejante.name }} {{ cortejante.surname }}</dfn></h3>
+
+<input (input)="escribir($event)" (focus)="cambiar($event)" type="text" placeholder="Prueba de input y focus">
+<br>
+<p>Probemos keydown de Enter</p>
+<input (keydown)="print($event)" placeholder="Probemos keydown de Enter">
+<p>Probemos keyup de barra espaciadora</p>
+<input (keyup)="print2($event)" placeholder="Probemos keyup de barra espaciadora">
+
+<p>Mouse enter, mouse leave</p>
+<div (mouseenter)="australia()" (mouseleave)="usa()">
+    <img src="https://i.imgur.com/p78VB5h.gif" alt="USA Australia">
+</div>
+
+<div (dblclick)="dobleClick()">
+    <h3>Si hacés doble click adentro, salta un alert.</h3>
+    <img [src]="imagen" alt=""> <br>
+</div>
+
+<div style="border: 2px solid black; padding: 5px;">
+    <h3>Pasar a mayúsculas:</h3>
+    <input type="text" (ngModelChange)="mayusculas()" [(ngModel)]="inputNuevo">
+    
+    <p>Texto original: {{ inputNuevo }}</p>
+    <p>Texto en mayúsculas: {{ inputMayusculas }}</p>
+</div>
+
+
+<label for="">E-Mail
+    <input type="text" [(ngModel)]='email'>
+</label>
+
+<label for="">Password
+    <input type="password" [(ngModel)]='password'>
+</label>
+
+<button (click)="login()" >Meta guacha!</button>
+
+
