@@ -1,0 +1,13 @@
+<p>{{ titulo | uppercase }} con uppercase pipe</p> 
+<p>{{ titulo | lowercase }} con lowercase pipe</p>
+<p>{{ titulo | titlecase }} con titlecase pipe</p>
+
+<p>{{ dinero | currency: '€'}}</p>
+
+<p>{{ ganancias| percent}}</p>
+
+<p>{{ nacimiento | date: 'dd/MM/yyyy' }}</p> <!--See https://angular.io/api/common/DatePipe to more format options.-->
+
+<div class="cuadrado">
+    <p>{{ textolargo | textos }}</p>
+</div>
