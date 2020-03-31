@@ -26,3 +26,9 @@ Note I'm following an Udemy course, _"La Web Empieza Aquí: TypeScript, Angular 
 #### "[formularios](formularios)" folder:
 - Angular reactive forms.
 - Practical example adding, editing and deleting data using Angular forms (FormBuilder, FormGroup, Validators).
+
+#### "[los-servicios](los-servicios)" folder:
+- Angular services examples.
+- Generate and inject services.
+- HTTP methods (CRUD).
+- Working with Jsonplaceholder

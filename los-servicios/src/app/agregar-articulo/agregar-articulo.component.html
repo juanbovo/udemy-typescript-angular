@@ -1,0 +1,30 @@
+<div class="container">
+    <!-- <h2 *ngIf="esNuevo">Agregar</h2>
+    <h2 *ngIf="!esNuevo">Editar</h2> -->
+    <h2>{{titulo}}</h2>
+    <form [formGroup]="formularioArticulo">
+
+        <div class="form-group">
+            <label for="">Titulo</label>
+            <input type="text" class="form-control" formControlName="title">
+        </div>
+
+        <div class="form-group">
+            <label for="">Cuerpo</label>
+            <input type="text" class="form-control" formControlName="body">
+        </div>
+
+        <div class="form-group">
+            <label for="">Seleccione un autor</label>
+            <select class="form-control" formControlName="userId">
+                <!-- <option value="1">Juampi</option>
+                <option value="2">Tomás</option> --> <!--Here below is how we return users from Jsonplaceholder. Note property binding on value using brakets.-->
+                <option *ngFor="let autor of usuariosFromApi" [value]="autor.id">{{autor.name}}</option>
+            </select>
+        </div>
+
+        <button *ngIf="esNuevo" [disabled]="!formularioArticulo.valid" (click)="agregar()" class="btn btn-primary">Agregar</button>
+        <button *ngIf="!esNuevo" [disabled]="!formularioArticulo.valid" (click)="editar()" class="btn btn-warning">Editar</button>
+    </form>
+
+</div>
