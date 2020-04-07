@@ -32,3 +32,8 @@ Note I'm following an Udemy course, _"La Web Empieza Aquí: TypeScript, Angular 
 - Generate and inject services.
 - HTTP methods (CRUD).
 - Working with Jsonplaceholder
+
+#### "[pedidos](pedidos)" folder
+- Small e-commerce frontend project using former learned concepts.
+- Products, orders and clients creation.
+- Save data using LocalStorage.

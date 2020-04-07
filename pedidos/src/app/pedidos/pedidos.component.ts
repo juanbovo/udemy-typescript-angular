@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Pedido } from '../models/pedido';
+import { PedidosService } from '../services/pedidos.service';
 
 @Component({
   selector: 'app-pedidos',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidosComponent implements OnInit {
 
-  constructor() { }
+  constructor(public pedidosServicio:PedidosService) { }
 
   ngOnInit(): void {
+    let pedido:Pedido = new Pedido()
+  }
+
+  calcularSubtotal(posicion){
+    this.pedidosServicio.pedido.actualizarCantidades(posicion)
+    this.pedidosServicio.guardarEnLocalStorage()
+  }
+
+  guardar(){
+    this.pedidosServicio.guardarPedido()
+  }
+
+  eliminar(posicion:number){
+    this.pedidosServicio.pedido.pedidoDetalle.splice(posicion, 1)
+    this.pedidosServicio.guardarEnLocalStorage()
   }
 
 }
