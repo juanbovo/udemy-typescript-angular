@@ -1,0 +1,9 @@
+<p>Cliente: {{pedido.cliente}}</p>
+<p>Dirección: {{pedido.direccion}}</p>
+
+<input #buscador type="text" placeholder="Busque, busque..."> <!--Esto es para probar ngAfterViewChecked--> <br>
+<button (click)="agregarProducto()">Agregar Producto</button>
+
+<!--[pedidoDetalle] -> Property binding con la propiedad pedidoDetalle:PedidoDetalle de pedido-detalle.component.ts -->
+<!--(eliminarProducto) -> event binding con una función que se encuentra en el componente padre. eliminarProducto es una suerte de listener, al que le tenemos que vincular una función y un $event. -->
+<app-pedido-detalle [pedidoDetalle]="pedido.pedidoDetalle" (productoEliminado)="eliminarProducto($event)"></app-pedido-detalle>

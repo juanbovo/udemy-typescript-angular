@@ -33,7 +33,11 @@ Note I'm following an Udemy course, _"La Web Empieza Aquí: TypeScript, Angular 
 - HTTP methods (CRUD).
 - Working with Jsonplaceholder
 
-#### "[pedidos](pedidos)" folder
+#### "[pedidos](pedidos)" folder:
 - Small e-commerce frontend project using former learned concepts.
 - Products, orders and clients creation.
 - Save data using LocalStorage.
+
+#### "[ejemplos-core](ejemplos-core)" folder:
+- Angular Core concepts and examples.
+- Angular lifecycle examples.
