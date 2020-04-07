@@ -1,0 +1,23 @@
+<div action="" class="container">
+    <form action="" [formGroup]="formularioAgregarProducto">
+
+        <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" formControlName="nombre" name="" id="" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="">Descripción</label>
+            <!-- <input type="text" formControlName="descripcion" class="form-control"> -->
+            <textarea name="" id="" cols="30" rows="4" formControlName="descripcion" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="">Precio</label>
+            <input type="number" formControlName="precio" name="" id="" class="form-control">
+        </div>
+
+        <button [disabled]="!formularioAgregarProducto.valid" (click)="agregar()" class="btn btn-success">Agregar nuevo producto</button>
+    </form>
+
+</div>

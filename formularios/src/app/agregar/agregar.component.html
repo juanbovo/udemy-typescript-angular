@@ -1,0 +1,78 @@
+<div class="container">
+    <form [formGroup]="formularioCreado">
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" class="form-control" formControlName="nombre">
+            <div *ngIf="formularioCreado.controls['nombre'].invalid && formularioCreado.controls['nombre'].dirty" class="alert alert-danger" role="alert">
+                <span *ngIf="formularioCreado.controls['nombre'].errors.required">Este dato es requerido.</span>                
+            </div>
+
+            <!--Next two lines are placed to show validations on the former alert div: if both are true (invalid && dirty), alert div pops up-->
+            {{ formularioCreado.controls["nombre"].invalid }} <!--invalid becomes true when input is empty, because its validator at agregar.components.ts is 'required'-->
+            {{ formularioCreado.controls["nombre"].dirty }} <!--Dirty stars as false, becomes true when you start writing on input... so only shows if you already altered on formControlName="nombre"-->
+        </div>
+
+        <div class="form-group">
+            <label>Correo</label>
+            <input type="text" class="form-control" formControlName="correo">
+
+            <!--Next div is placed to assemble validators and show alerts properly, but it also has his own validator-->
+            <!--So this Alerts-div will pop up if both conditions ('invalid' and 'dirty') are true for 'correo' formControlName-->
+            <div *ngIf="formularioCreado.controls['correo'].invalid && formularioCreado.controls['correo'].dirty">
+
+                <!--errors.required handle this single error: shows only if field is empty-->
+                <div *ngIf="formularioCreado.controls['correo'].errors.required" class="alert alert-danger" role="alert">
+                    Este dato es requerido.
+                </div>
+
+                <!--errors.email handle this single error: shows only if entered input has no e-mail format-->
+                <div *ngIf="formularioCreado.controls['correo'].errors.email" class="alert alert-danger" role="alert">
+                    Por favor, chequee el formato de su dirección de correo.
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" class="form-control" formControlName="password">
+
+            <!--Same behavior as 'correo' formControlName-->
+            <!--Only shows up if input is dirty and invalid, which is, at the same time, password.length > 8 && password.length == 0-->
+            <div *ngIf="formularioCreado.controls['password'].invalid && formularioCreado.controls['password'].dirty">
+
+                <!--Only shows if input is empty-->
+                <div *ngIf="formularioCreado.controls['password'].errors.required" class="alert alert-danger" role="alert">
+                    Este dato es requerido.
+                </div>
+
+                <!--user needs to place at least 8 characters to make this div disappear-->
+                <div *ngIf="formularioCreado.controls['password'].errors.minlength" class="alert alert-danger" role="alert">
+                    La contraseña debe tener al menos 8 caracteres.
+                </div>
+            </div>
+        </div>
+
+        <button *ngIf="esNuevo" [disabled]="!formularioCreado.valid" (click)="agregar()" class="btn btn-primary">Agregar</button>
+        <button *ngIf="!esNuevo" [disabled]="!formularioCreado.valid" (click)="editar()" class="btn btn-warning">Editar</button>
+    </form>
+
+    <!--simple div to see on screen form's fields and if form is valid-->
+    <div style="margin: 20px 0;">
+        <h6>Valid?</h6>
+        <p>{{ formularioCreado.value | json }}</p>
+        <p>{{ formularioCreado.valid }}</p>
+    </div>
+
+    <div>
+        <div class="container borde" *ngFor="let usuario of usuarios, let posicion = index">
+            <h4>{{usuario.nombre}}</h4>
+            <p>{{usuario.correo}}</p>
+            <p>{{usuario.password}}</p>
+    
+            <button (click)="editarUsuario(posicion)">Editar este usuario</button>
+            <button (click)="eliminarUsuario(posicion)">Eliminar este usuario</button>
+    </div>
+
+    </div>
+</div>

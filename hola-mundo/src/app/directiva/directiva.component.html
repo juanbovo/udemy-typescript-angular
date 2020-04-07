@@ -1,0 +1,50 @@
+<h2>directiva works!</h2>
+<!--*ngIf-->
+<!-- <img *ngIf="cargando" src="https://azissolutions.com/img/loader.gif" alt=""> -->
+
+
+<!--ngFor-->
+<!-- <div>
+    <h3>¿Qué quiere tomar?</h3>
+    <div *ngFor="let producto of productos" style="border: 1px dashed green; padding: 10px; margin: 5px;">
+        <h4>{{producto.nombre}}</h4>
+        <h6><em>{{producto.fabricante}}</em></h6>
+        <p>Quedan {{producto.stock}} unidades</p>
+        <p>Consumirlas antes del {{producto.vencimiento}}</p>
+    </div>
+    <p>Cabecitas adoradas que mienten amor</p>
+</div> -->
+
+
+<!--[ngSwitch]-->
+<!-- <div class="tab" [ngSwitch]="pestana">
+    <button (click)="cambiarTab('perfil')">Perfil</button>
+    <button (click)="cambiarTab('puntos')">Puntos</button>
+    <button (click)="cambiarTab('info')">Info</button>
+
+    <div class="tab-contenido">
+        <p *ngSwitchCase="'perfil'">Este es el perfil</p>
+        <p *ngSwitchCase="'puntos'">Estos son los puntos</p>
+        <p *ngSwitchCase="'info'">Esta es la info</p>
+        <p *ngSwitchDefault>Elegí, mostro.</p>
+    </div>
+
+</div> -->
+
+<!--[ngClass]-->
+<!-- <div (click)="cambiarEstilo()" [ngClass]="{ estilo: estiloBool }">
+    <p>Si la variable es true, esto debería tener estilo.</p>
+    <p>Si no tiene estilo, cliquealo para que aparezca.</p>
+    <p>Para sacarle estilo, click otra vez.</p>
+</div> -->
+
+<div>
+    <h3>¿Qué quiere tomar?</h3>
+    <div *ngFor="let producto of productos" style="border: 1px dashed green; padding: 10px; margin: 5px;">
+        <h4 [ngClass]="{ 'texto-importante': producto.importante }">{{producto.nombre}}</h4>
+        <h6><em>{{producto.fabricante}}</em></h6>
+        <p>Quedan {{producto.stock}} unidades</p>
+        <p [class.texto-importante]="producto.importante">Consumirlas antes del {{producto.vencimiento}}</p>
+    </div>
+    <p>Cabecitas adoradas que mienten amor</p>
+</div>

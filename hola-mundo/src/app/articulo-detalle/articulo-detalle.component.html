@@ -1,0 +1,8 @@
+<div class="container">
+    <h3>Detalle del producto</h3>
+    <h4>{{ articulo.nombre }}</h4>
+    <h5>{{ articulo.precio | currency: '€' }}</h5>
+    <p>(Si compras 10 o más: {{ articulo.precioMayorista | currency: '€'}} c/u)</p>
+    <p>{{ articulo.descripcion }}</p>
+    <p>¡Quedan solo {{ articulo.stock }} unidades!</p>
+</div>
