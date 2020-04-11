@@ -1,0 +1,16 @@
+<div *ngIf="usuario && !cargando; else showLogin">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+  
+  <h1>Hello {{ usuario.email }}!</h1>
+  <button (click)="logout()">Logout</button>
+</div>
+<ng-template #showLogin>
+  <div *ngIf="cargando" class="text-center">
+    <!-- <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/585d0331234507.564a1d239ac5e.gif" alt="cargando"> -->
+    <div class="lds-ripple"><div></div><div></div></div>
+  </div>
+  <div *ngIf="!cargando">
+    <app-login></app-login>
+  </div>
+</ng-template>

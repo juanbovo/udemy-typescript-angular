@@ -41,3 +41,7 @@ Note I'm following an Udemy course, _"La Web Empieza Aquí: TypeScript, Angular 
 #### "[ejemplos-core](ejemplos-core)" folder:
 - Angular Core concepts and examples.
 - Angular lifecycle examples.
+
+#### "[mastergym](mastergym)"
+- Using bootstrap, ngx-bootstrap, firebase, angular/fire module.
+- Loading options with loading.io/css/ and ngx-spinner
