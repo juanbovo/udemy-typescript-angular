@@ -22,12 +22,4 @@ export class AppComponent {
       }) // you can also save this user as a class property.
   }
 
-  login() {
-    // this.auth.signInWithPopup(new auth.GoogleAuthProvider());//overriding google login
-    this.auth.signInWithEmailAndPassword('aaa@lololo.com','123456')
-  }
-
-  logout() {
-    this.auth.signOut();
-  }
 }

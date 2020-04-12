@@ -1,0 +1,82 @@
+<div class="mt-3 container">
+    <form [formGroup]="formularioCliente" action="">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre del cliente nuevo">
+                    <div *ngIf="formularioCliente.controls['nombre'].invalid && formularioCliente.controls['nombre'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['nombre'].errors.required">Campo obligatorio.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Apellido</label>
+                    <input type="text" class="form-control" formControlName="apellido" placeholder="Apellido del cliente nuevo">
+                    <div *ngIf="formularioCliente.controls['apellido'].invalid && formularioCliente.controls['apellido'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['apellido'].errors.required">Campo obligatorio.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Correo electrónico</label>
+                    <input type="text" class="form-control" formControlName="correo" placeholder="Correo electrónico del cliente nuevo">
+                    <div *ngIf="formularioCliente.controls['correo'].invalid && formularioCliente.controls['correo'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['correo'].errors.required">Se requiere una dirección de correo electrónico.</span>
+                        <span *ngIf="formularioCliente.controls['correo'].errors.email">Ingrese un correo electrónico válido.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">DNI</label>
+                    <input type="text" class="form-control" formControlName="dni" placeholder="DNI (o NIE) del cliente nuevo">
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" formControlName="fechaNacimiento" placeholder="Fecha de nacimiento del cliente nuevo">
+                    <div *ngIf="formularioCliente.controls['fechaNacimiento'].invalid && formularioCliente.controls['fechaNacimiento'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['fechaNacimiento'].errors.required">Campo obligatorio.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Teléfono</label>
+                    <input type="tel" class="form-control" formControlName="telefono" placeholder="Teléfono del cliente nuevo">
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="">Foto</label>
+                    <input type="file" (change)="subirImagen($event)" class="form-control-file" formControlName="imgUrl" placeholder="Fotografía del cliente nuevo">
+                    <div *ngIf="formularioCliente.controls['imgUrl'].invalid && formularioCliente.controls['imgUrl'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['imgUrl'].errors.required">Por favor, suba una foto/avatar.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="mb-4">
+                    <progressbar max="100" [value]="porcentajeSubida" type="danger" [striped]="true"><i>{{porcentajeSubida}} / 100</i></progressbar>
+                </div>
+            </div>
+
+            <button (click)="agregar()" [disabled]="formularioCliente.invalid" class="btn btn-success">Agregar</button>
+
+        </div>
+
+    </form>
+</div>
