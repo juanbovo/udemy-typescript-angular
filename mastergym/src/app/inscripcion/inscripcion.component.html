@@ -7,12 +7,57 @@
                 (seleccionoCliente)="asignarCliente($event)"
                 (canceloCliente)="eliminarCliente()">
             </app-seleccionar-cliente>
+            
+            <div class="form-group">
+                <label for="">Precios</label>
+                <select [(ngModel)]="idPrecio" (change)="seleccionarPrecio($event.target.value)" class="form-control" name="" id="">
+                    <option [value]="null" disabled selected>Seleccionar suscripción</option>
+                    <option *ngFor="let precio of precios" [value]="precio.id">{{precio.nombre}}</option>
+                </select>
+            </div>
+
+            <!--Date information-->
+            <div class="form-group row">
+                <label for="" class="col-sm-5 col-form-label">Fecha de inicio</label>
+                <div class="col-sm-7">
+                    <input [value]="inscripcion.fecha | date: 'dd/MM/yyyy'" type="text" class="form-control input-disabled" disabled>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-5 col-form-label">Fecha de finalización</label>
+                <div class="col-sm-7">
+                    <input [value]="inscripcion.fechaFinal | date: 'dd/MM/yyyy'" type="text" class="form-control input-disabled" disabled>
+                </div>
+            </div>
+
+            <!--Price information-->
+            <div class="form-group row">
+                <label for="" class="col-sm-5 col-form-label">Subtotal</label>
+                <div class="col-sm-7">
+                    <input [value]="inscripcion.subTotal | currency: '€'" type="text" class="form-control input-disabled" disabled>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-5 col-form-label">IVA</label>
+                <div class="col-sm-7">
+                    <input [value]="inscripcion.iva | currency: '€'" type="text" class="form-control input-disabled" disabled>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-5 col-form-label">Total</label>
+                <div class="col-sm-7">
+                    <input [value]="inscripcion.total | currency: '€'" type="text" class="form-control input-disabled" disabled>
+                </div>
+            </div>
 
             <button class="btn btn-primary" (click)="guardarInscripcion()">Guardar inscripción</button> <!--Teacher calls this click function just guardar()-->
         </div>
 
+
         <div class="col-sm-6">
-            segundos
+            <div *ngIf="clienteSeleccionado.imgUrl">
+                <img [src]="clienteSeleccionado.imgUrl" [alt]="clienteSeleccionado.nombre" class="img-cliente">
+            </div>
         </div>
 
     </div>

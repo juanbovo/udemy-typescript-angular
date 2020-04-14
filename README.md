@@ -43,5 +43,5 @@ Note I'm following an Udemy course, _"La Web Empieza Aquí: TypeScript, Angular 
 - Angular lifecycle examples.
 
 #### "[mastergym](mastergym)"
-- Using bootstrap, ngx-bootstrap, firebase (auth, db, ...), angular/fire module.
-- Loading options with loading.io/css/ and ngx-spinner.
+- Final project using previously learned concepts.
+- New learnings on Angular: ngx-bootstrap, firebase (auth, db, ...), angular/fire module, loading.io and ngx-spinner.
