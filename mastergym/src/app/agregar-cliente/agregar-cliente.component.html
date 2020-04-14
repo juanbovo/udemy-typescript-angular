@@ -74,7 +74,8 @@
                 </div>
             </div>
 
-            <button (click)="agregar()" [disabled]="formularioCliente.invalid" class="btn btn-success">Agregar</button>
+            <button *ngIf="!esEditable" (click)="agregar()" [disabled]="formularioCliente.invalid && !urlImagen" class="btn btn-success">Agregar</button>
+            <button *ngIf="esEditable" (click)="editar()" [disabled]="formularioCliente.invalid && !urlImagen" class="btn btn-warning">Editar</button>
 
         </div>
 

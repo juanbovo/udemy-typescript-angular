@@ -1,0 +1,19 @@
+<div class="container mt-4">
+    <div class="row">
+
+        <div class="col-sm-6">
+            <app-seleccionar-cliente
+                [nombre]="clienteSeleccionado.nombre"
+                (seleccionoCliente)="asignarCliente($event)"
+                (canceloCliente)="eliminarCliente()">
+            </app-seleccionar-cliente>
+
+            <button class="btn btn-primary" (click)="guardarInscripcion()">Guardar inscripción</button> <!--Teacher calls this click function just guardar()-->
+        </div>
+
+        <div class="col-sm-6">
+            segundos
+        </div>
+
+    </div>
+</div>

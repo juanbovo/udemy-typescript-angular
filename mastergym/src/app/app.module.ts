@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AgregarClienteComponent } from './agregar-cliente/agregar-cliente.component';
 
 //ngx bootstrap
 import { AccordionModule } from 'ngx-bootstrap/accordion';
@@ -25,7 +26,12 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 import { HeaderComponent } from './header/header.component';
 import { ListadoClientesComponent } from './listado-clientes/listado-clientes.component'
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AgregarClienteComponent } from './agregar-cliente/agregar-cliente.component';
+
+//Servicios
+import { MensajesService } from './services/mensajes.service';
+import { PreciosComponent } from './precios/precios.component';
+import { InscripcionComponent } from './inscripcion/inscripcion.component';
+import { SeleccionarClienteComponent } from './seleccionar-cliente/seleccionar-cliente.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,10 @@ import { AgregarClienteComponent } from './agregar-cliente/agregar-cliente.compo
     LoginComponent,
     HeaderComponent,
     ListadoClientesComponent,
-    AgregarClienteComponent
+    AgregarClienteComponent,
+    PreciosComponent,
+    InscripcionComponent,
+    SeleccionarClienteComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +59,8 @@ import { AgregarClienteComponent } from './agregar-cliente/agregar-cliente.compo
   ],
   providers: [
     AngularFireAuth,
-    AngularFirestore
+    AngularFirestore,
+    MensajesService
   ],
   bootstrap: [AppComponent]
 })
